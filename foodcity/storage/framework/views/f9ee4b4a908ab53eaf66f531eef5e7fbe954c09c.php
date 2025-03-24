@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('layouts.versions.superadmin-light', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\foodcity\resources\views/layouts/superadmin-login-app.blade.php ENDPATH**/ ?>
