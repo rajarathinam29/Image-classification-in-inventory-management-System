@@ -1,0 +1,135 @@
+@extends('layouts.app')
+
+@section('styles')
+    <!-- Slect2 css -->
+    <link href="{{asset('assets/plugins/select2/select2.min.css')}}" rel="stylesheet" />
+    
+@endsection
+
+@section('content')
+
+<!--Page header-->
+<div class="page-header">
+	<div class="page-leftheader">
+		<h4 class="page-title mb-0 text-primary">{{$title}}</h4>
+	</div>
+    <!-- <div class="page-rightheader">
+        <div class="btn-list">
+            <a href="javascript:void(0);" class="btn btn-outline-primary btnBack"><i class="fe fe-skip-back"></i> Back</a>
+        </div>
+    </div> -->
+</div>
+<!--End Page header-->
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12">
+        <div class="card">
+            <form id="payorderForm">
+                <div class="card-body">
+                    <div class="card-title font-weight-bold">Basic info:</div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Date<span class="text-red">*</span></label>
+                                <input type="datetime-local" class="form-control" name="date" id="date" placeholder="Date">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Payment Method<span class="text-red">*</span></label>
+                                <select class="form-control custom-select select2" name="method" id="method">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Amount<span class="text-red">*</span></label>
+                                <input type="number" class="form-control" name="amount" id="amount" placeholder="Amount" autocomplete="off">  
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 chequeField">
+                            <div class="form-group">
+                                <label class="form-label">Bank Account<span class="text-red">*</span></label>
+                                <select class="form-control select2" data-placeholder="Choose one" id="companyBankId" name="companyBankId"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 chequeField">
+                            <div class="form-group">
+                                <label class="form-label">Cheque No.<span class="text-red">*</span></label>
+                                <input type="number" class="form-control" name="chequeNo" id="chequeNo" placeholder="ChequeNo" autocomplete="off">  
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 chequeField">
+                            <div class="form-group">
+                                <label class="form-label">Effective Date<span class="text-red">*</span></label>
+                                <input type="date" class="form-control" name="effectiveDate" id="effectiveDate" placeholder="Date">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 chequeField">
+                            <div class="form-group">
+                                <label class="form-label">Payee Name.<span class="text-red">*</span></label>
+                                <input type="text" class="form-control" name="payeeName" id="payeeName" placeholder="payeeName" autocomplete="off">  
+                            </div>
+                        </div>
+                        <div class="col-lg-12 ">
+                            <div class="form-group">
+                                <label class="form-label">Refference / Description</label>
+                                <textarea class="form-control mb-4" placeholder="Refference, Card no., Description." rows="3" id="description" name="description"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Purchase Type<span class="text-red">*</span></label>
+                                <select class="form-control custom-select select2" name="purchaseType" id="purchaseType">
+                                    <option value="2">Ordinary purchase</option>
+                                    <option value="3">Purchase order</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Supplier<span class="text-red">*</span></label>
+                                <select class="form-control custom-select select2" name="suppliers" id="suppliers">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Credit Invoice<span class="text-red">*</span></label>
+                                <select class="form-control select2" name="invoice_no" id="invoice_no" multiple>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Balance</label>
+                                <input type="number" class="form-control" name="balance_amount" id="balance_amount" placeholder="Balance" readonly>  
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                    
+                <div class="card-footer text-end">
+                    <a href="javascript:void(0);" class="btn btn-info btnBack"><i class="fe fe-skip-back"></i> Back</a>
+                    <button type="button" class="btn  btn-success" id="btnSubmit">Save <i class="fe fe-skip-forward"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@endsection('content')
+
+@section('scripts')
+
+<!-- INTERNAL Select2 js -->
+<script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
+<script src="{{asset('assets/js/select2.js')}}"></script>
+<!-- Mask js -->
+<script src="{{asset('assets/plugins/input-mask/jquery.mask.min.js')}}"></script>
+
+<script src="{{asset('assets/js/payorder/create.js')}}"></script>
+
+@endsection
